@@ -66,4 +66,9 @@ describe('N-Queens Problem', () => {
         ];
         expect(solutions).toEqual(expect.arrayContaining(expectedSolutions));
     });
+
+    it('should handle edge cases for n = 0 and n = 1', () => {
+        expect(solveNQueens(0)).toEqual([]);
+        expect(solveNQueens(1)).toEqual([['Q']]);
+    });
 });
