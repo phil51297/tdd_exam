@@ -34,5 +34,28 @@ describe('N-Queens Problem', () => {
         });
     });
 
+    it('should place queens correctly for n = 4', () => {
+        const solutions = solveNQueens(4);
+        solutions.forEach(solution => {
+            const queenPositions: [number, number][] = [];
+            solution.forEach((row, rowIndex) => {
+                const colIndex = row.indexOf('Q');
+                if (colIndex !== -1) {
+                    queenPositions.push([rowIndex, colIndex]);
+                }
+            });
+
+            for (let i = 0; i < queenPositions.length; i++) {
+                for (let j = i + 1; j < queenPositions.length; j++) {
+                    const [row1, col1] = queenPositions[i];
+                    const [row2, col2] = queenPositions[j];
+                    expect(row1).not.toBe(row2);
+                    expect(col1).not.toBe(col2);
+                    expect(Math.abs(row1 - row2)).not.toBe(Math.abs(col1 - col2));
+                }
+            }
+        });
+    });
+
 
 })
