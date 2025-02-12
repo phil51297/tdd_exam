@@ -22,4 +22,17 @@ describe('N-Queens Problem', () => {
       }
         })
     })
+
+    it('should return valid board configurations for n = 4', () => {
+        const solutions = solveNQueens(4);
+        solutions.forEach(solution => {
+            expect(solution.length).toBe(4);
+            solution.forEach(row => {
+                expect(row.length).toBe(4);
+                expect(row).toMatch(/^[Q.]+$/);
+            });
+        });
+    });
+
+
 })

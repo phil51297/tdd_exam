@@ -1,6 +1,6 @@
 export function solveNQueens(n: number): string[][] {
     const solutions: string[][] = [];
-    const board: string[] = Array(n).fill('.').map(() => '.'.repeat(n));  // Create an empty board
+    const board: string[] = Array(n).fill('.').map(() => '.'.repeat(n));
 
     const isSafe = (row: number, col: number): boolean => {
         for (let i = 0; i < row; i++) {
@@ -36,4 +36,3 @@ export function solveNQueens(n: number): string[][] {
 
     return solutions;
 }
-
