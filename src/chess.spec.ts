@@ -2,6 +2,7 @@ import { solveNQueens } from './chess';
 
 describe('N-Queens Problem', () => {
     const testCases = [
+        { n: 0, expected: [] },
         { n: 1, expected: [['Q']] },
         { n: 2, expected: [] },
         { n: 3, expected: [] },
@@ -13,12 +14,7 @@ describe('N-Queens Problem', () => {
     testCases.forEach(({ n, expected }) => {
         it(`should return the correct solution for n = ${n}`, () => {
             const result = solveNQueens(n);
-
-            if (n === 2 || n === 3) {
-                expect(result).toEqual([]);
-            } else {
-                expect(result.length).toBeGreaterThan(0);
-            }
+            expect(result).toEqual(expected);
         });
     });
 

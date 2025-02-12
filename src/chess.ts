@@ -1,4 +1,10 @@
 export function solveNQueens(n: number): string[][] {
+    if (n === 0) {
+        return [];
+    }
+    if (n === 1) {
+        return [['Q']];
+    }
     const solutions: string[][] = [];
     const board: string[] = Array(n).fill('.').map(() => '.'.repeat(n));
 
